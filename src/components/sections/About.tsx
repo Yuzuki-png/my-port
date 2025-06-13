@@ -34,14 +34,14 @@ const About = () => {
     <Box
       component="section"
       id="about"
-      className="py-20 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
+      className="py-24 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
     >
       <Container size="xl">
-        <Box className="text-center mb-16">
+        <Box className="text-center mb-20">
           <Title
             order={2}
             size="3rem"
-            className="text-gray-600 text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text mb-6"
+            className="text-gray-600 text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text mb-8"
           >
             私について
           </Title>
@@ -50,18 +50,18 @@ const About = () => {
           </Text>
         </Box>
 
-        <Grid>
+        <Grid gutter="xl">
           <Grid.Col span={{ base: 12, lg: 6 }}>
-            <Stack gap="xl">
+            <Stack gap="2xl">
               <Paper 
                 className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-xl border-0"
                 p="xl"
                 radius="lg"
               >
-                <Title order={3} size="1.5rem" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                <Title order={3} size="1.5rem" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
                   学生エンジニアとして
                 </Title>
-                <Stack gap="lg">
+                <Stack gap="xl">
                   <Text size="lg" className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     駒澤大学文学部社会学科に在籍する学生エンジニアです。
                     現在は大学を通いつつ、エンジニアインターンに参画して実務経験を積んでいます。
@@ -83,17 +83,17 @@ const About = () => {
                 p="xl"
                 radius="lg"
               >
-                <Group gap="md" className="mb-6">
+                <Group gap="md" className="mb-8">
                   <Text size="2xl">💡</Text>
                   <Title order={3} size="1.5rem" className="text-2xl font-bold text-gray-900 dark:text-white">
                     私の信念
                   </Title>
                 </Group>
-                <Box className="text-center p-6">
+                <Box className="text-center p-8">
                   <Text
                     size="xl"
                     fw={700}
-                    className="text-gray-900 dark:text-white text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text"
+                    className="text-gray-900 dark:text-white text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text mb-4"
                   >
                     「エンジニアとして社会をより良くしたい」
                   </Text>
@@ -106,20 +106,20 @@ const About = () => {
           </Grid.Col>
 
           <Grid.Col span={{ base: 12, lg: 6 }}>
-            <Stack gap="xl">
+            <Stack gap="2xl">
               <Paper 
                 className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-xl border-0"
                 p="xl"
                 radius="lg"
               >
-                <Title order={3} size="1.5rem" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                <Title order={3} size="1.5rem" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
                   現在の状況
                 </Title>
-                <SimpleGrid cols={2} spacing="md">
+                <SimpleGrid cols={2} spacing="lg">
                   {highlights.map((item, index) => (
-                    <Box key={index} className="text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50">
-                      <Text size="2xl" className="mb-2">{item.icon}</Text>
-                      <Text fw={600} className="text-gray-900 dark:text-white mb-1">{item.title}</Text>
+                    <Box key={index} className="text-center p-6 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                      <Text size="2xl" className="mb-3">{item.icon}</Text>
+                      <Text fw={600} className="text-gray-900 dark:text-white mb-2">{item.title}</Text>
                       <Text size="sm" className="text-gray-600 dark:text-gray-400">{item.description}</Text>
                     </Box>
                   ))}
@@ -131,10 +131,10 @@ const About = () => {
                 p="xl"
                 radius="lg"
               >
-                <Title order={3} size="1.5rem" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                <Title order={3} size="1.5rem" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
                   現在の取り組み
                 </Title>
-                <Stack gap="md">
+                <Stack gap="lg">
                   {currentFocus.map((item, index) => (
                     <Group key={index} gap="md">
                       <Badge color="blue" variant="light" size="sm">

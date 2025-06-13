@@ -7,7 +7,7 @@ export const APP_CONFIG = {
     name: '学生エンジニア',
     university: '駒澤大学',
     faculty: '文学部社会学科',
-    github: 'https://github.com',
+    github: 'https://github.com/Yuzuki-png',
     zenn: 'https://zenn.dev/you_ik',
   },
 } as const;
