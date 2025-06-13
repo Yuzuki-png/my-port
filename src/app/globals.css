@@ -1,26 +1,45 @@
-@import "tailwindcss";
+@import '@mantine/core/styles.css';
+@import '@mantine/notifications/styles.css';
+@import '@mantine/spotlight/styles.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Mantine カスタム変数 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mantine-color-body: #f9fafb;
+  --mantine-color-text: #111827;
+  --mantine-color-primary-0: #eff6ff;
+  --mantine-color-primary-1: #dbeafe;
+  --mantine-color-primary-2: #bfdbfe;
+  --mantine-color-primary-3: #93c5fd;
+  --mantine-color-primary-4: #60a5fa;
+  --mantine-color-primary-5: #3b82f6;
+  --mantine-color-primary-6: #2563eb;
+  --mantine-color-primary-7: #1d4ed8;
+  --mantine-color-primary-8: #1e40af;
+  --mantine-color-primary-9: #1e3a8a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-mantine-color-scheme='dark'] {
+  --mantine-color-body: #111827;
+  --mantine-color-text: #f3f4f6;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  [data-theme="dark"] {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: Arial, Helvetica, sans-serif;
 }
