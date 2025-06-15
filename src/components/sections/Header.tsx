@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <>
       <AppShell.Header 
-        className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700"
+        className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-600"
         h={70}
       >
         <Container size="xl" h="100%">
@@ -32,16 +32,16 @@ const Header = () => {
               <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
               <UnstyledButton component={Link} href="/">
                 <Text 
-                  size="xl" 
+                  size="lg" 
                   fw={700} 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text"
+                  className="md:text-xl text-black dark:text-white"
                 >
                   {APP_CONFIG.name}
                 </Text>
               </UnstyledButton>
             </Group>
 
-            <Group gap="lg" visibleFrom="sm">
+            <Group gap="md" visibleFrom="sm" className="md:gap-lg">
               {NAV_ITEMS.map((item) => (
                 <Anchor
                   key={item.href}
@@ -49,7 +49,7 @@ const Header = () => {
                   href={item.href}
                   size="sm"
                   fw={500}
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors md:text-base"
                   underline="never"
                 >
                   {item.label}
@@ -57,17 +57,20 @@ const Header = () => {
               ))}
             </Group>
 
-            <Button
-              component={Link}
-              href={APP_CONFIG.author.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="light"
-              size="sm"
-              leftSection={<IconBrandGithub size={16} />}
-            >
-              GitHub
-            </Button>
+            <Group gap="sm">
+              <Button
+                component={Link}
+                href={APP_CONFIG.author.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="light"
+                size="sm"
+                leftSection={<IconBrandGithub size={16} />}
+                className="hidden sm:flex"
+              >
+                GitHub
+              </Button>
+            </Group>
           </Group>
         </Container>
       </AppShell.Header>
@@ -78,14 +81,15 @@ const Header = () => {
         title={
           <Text 
             size="lg" 
-            fw={700} 
-            className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text"
+            fw={700}
+            className="text-black dark:text-white"
           >
             {APP_CONFIG.name}
           </Text>
         }
         padding="md"
         size="xs"
+        className="dark:bg-gray-800"
       >
         <Stack gap="md">
           {NAV_ITEMS.map((item) => (
@@ -96,12 +100,28 @@ const Header = () => {
               size="md"
               fw={500}
               onClick={close}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2"
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2"
               underline="never"
             >
               {item.label}
             </Anchor>
           ))}
+          
+          <Group gap="sm" className="mt-4">
+            <Button
+              component={Link}
+              href={APP_CONFIG.author.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="light"
+              size="sm"
+              leftSection={<IconBrandGithub size={16} />}
+              onClick={close}
+              className="flex-1"
+            >
+              GitHub
+            </Button>
+          </Group>
         </Stack>
       </Drawer>
     </>

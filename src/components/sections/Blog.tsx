@@ -115,37 +115,38 @@ const Blog = () => {
     <Box
       component="section"
       id="blog"
-      className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900"
+      className="py-16 md:py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/20"
     >
       <Container size="xl">
-        <Box className="text-center mb-16">
+        <Box className="text-center mb-12 md:mb-16">
           <Title
             order={2}
-            size="3rem"
-            className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
           >
-            ブログ・制作実績（Portfolio / Works）
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
+              ブログ・制作実績（Portfolio / Works）
+            </span>
           </Title>
-          <Text size="xl" className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <Text size="lg" className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 md:text-xl">
             技術学習の記録と実際に開発したプロジェクトをご紹介します
           </Text>
         </Box>
 
         {/* 技術ブログセクション */}
-        <Box className="mb-24">
-          <Group gap="md" className="mb-8">
-            <Text size="2xl">📘</Text>
-            <Title order={3} size="1.8rem" className="text-gray-800 dark:text-gray-200">
+        <Box className="mb-16 md:mb-24">
+          <Group gap="md" className="mb-6 md:mb-8">
+            <Text size="xl" className="md:text-2xl">📘</Text>
+            <Title order={3} size="lg" className="text-gray-800 dark:text-white md:text-xl">
               技術ブログ（Zenn）
             </Title>
           </Group>
           
-          <Grid>
+          <Grid gutter="lg">
             {blogPosts.map((post) => (
               <Grid.Col key={post.id} span={{ base: 12, md: 6 }}>
                 <Card 
-                  className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 h-full"
-                  p="xl"
+                  className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 h-full"
+                  p="lg"
                   radius="lg"
                 >
                   <Stack gap="lg">
@@ -159,17 +160,17 @@ const Blog = () => {
                           Zenn
                         </Badge>
                       </Group>
-                      <Title order={4} size="lg" className="mb-3 text-gray-800 dark:text-gray-200">
+                      <Title order={4} size="md" className="mb-3 text-gray-800 dark:text-white md:text-lg">
                         {post.title}
                       </Title>
-                      <Text className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      <Text size="sm" className="text-gray-600 dark:text-gray-300 leading-relaxed md:text-base">
                         {post.description}
                       </Text>
                     </Box>
 
                     <Group gap="xs" className="flex-wrap">
                       {post.tags.map((tag, index) => (
-                        <Badge key={index} size="sm" variant="light" color="blue">
+                        <Badge key={index} size="xs" variant="light" color="blue" className="md:size-sm">
                           {tag}
                         </Badge>
                       ))}
@@ -182,6 +183,7 @@ const Blog = () => {
                       rel="noopener noreferrer"
                       variant="light"
                       color="blue"
+                      size="sm"
                       rightSection={<IconExternalLink size={16} />}
                       className="w-full"
                     >
@@ -195,20 +197,20 @@ const Blog = () => {
         </Box>
 
         {/* 制作実績セクション */}
-        <Box className="mb-24">
-          <Group gap="md" className="mb-8">
-            <Text size="2xl">💻</Text>
-            <Title order={3} size="1.8rem" className="text-gray-800 dark:text-gray-200">
+        <Box className="mb-16 md:mb-24">
+          <Group gap="md" className="mb-6 md:mb-8">
+            <Text size="xl" className="md:text-2xl">💻</Text>
+            <Title order={3} size="lg" className="text-gray-800 dark:text-white md:text-xl">
               制作中・公開中のプロジェクト
             </Title>
           </Group>
           
-          <Grid>
+          <Grid gutter="lg">
             {projects.map((project) => (
-              <Grid.Col key={project.id} span={{ base: 12, lg: 4 }}>
+              <Grid.Col key={project.id} span={{ base: 12, md: 6, lg: 4 }}>
                 <Card 
-                  className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 h-full"
-                  p="xl"
+                  className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 h-full"
+                  p="lg"
                   radius="lg"
                 >
                   <Stack gap="lg">
@@ -232,24 +234,24 @@ const Blog = () => {
                         )}
                       </Group>
                       
-                      <Title order={4} size="lg" className="mb-3 text-gray-800 dark:text-gray-200">
+                      <Title order={4} size="md" className="mb-3 text-gray-800 dark:text-white md:text-lg">
                         {project.title}
                       </Title>
                       
                       {project.repo && (
-                        <Text size="sm" className="text-blue-600 dark:text-blue-400 mb-3 font-mono">
+                        <Text size="xs" className="text-blue-600 dark:text-blue-400 mb-3 font-mono md:text-sm">
                           GitHub: {project.repo}
                         </Text>
                       )}
                       
-                      <Text className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      <Text size="sm" className="text-gray-600 dark:text-gray-300 leading-relaxed md:text-base">
                         {project.description}
                       </Text>
                     </Box>
 
                     <Group gap="xs" className="flex-wrap">
                       {project.tags.map((tag, index) => (
-                        <Badge key={index} size="sm" variant="light" color="gray">
+                        <Badge key={index} size="xs" variant="light" color="gray" className="md:size-sm">
                           {tag}
                         </Badge>
                       ))}
@@ -262,6 +264,7 @@ const Blog = () => {
                       rel="noopener noreferrer"
                       variant="light"
                       color={getPlatformColor(project.platform)}
+                      size="sm"
                       rightSection={<IconExternalLink size={16} />}
                       className="w-full"
                     >

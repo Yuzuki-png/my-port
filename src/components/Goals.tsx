@@ -63,11 +63,13 @@ const Goals = () => {
   ];
 
   return (
-    <section id="goals" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="goals" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            目標
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
+              目標
+            </span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             エンジニアとしての成長目標と将来のビジョンをご紹介します
@@ -84,7 +86,7 @@ const Goals = () => {
                 {goalCategory.items.map((goal, goalIndex) => (
                   <div
                     key={goalIndex}
-                    className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-0"
                   >
                     <div className="text-center mb-4">
                       <div className="text-4xl mb-3">{goal.icon}</div>
@@ -103,15 +105,15 @@ const Goals = () => {
         </div>
 
         {/* モチベーション */}
-        <div className="mt-16 bg-gradient-to-r from-blue-500 to-purple-600 p-8 rounded-lg text-white text-center">
+        <div className="mt-16 bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 p-8 rounded-lg text-white text-center shadow-xl">
           <h3 className="text-2xl font-bold mb-4">
             私のモチベーション
           </h3>
-          <p className="text-lg text-blue-100 mb-4">
+          <p className="text-lg text-blue-100 dark:text-blue-200 mb-4">
             エンジニアとして社会をより良くしたい。
             テクノロジーの力で人々の生活を豊かにし、社会の課題解決に貢献することが私の使命です。
           </p>
-          <p className="text-blue-100">
+          <p className="text-blue-100 dark:text-blue-200">
             学生エンジニアとして、学業と実務経験を両立させながら、
             常に成長し続けるエンジニアでありたいと思います。
           </p>

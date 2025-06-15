@@ -38,7 +38,7 @@ const theme = createTheme({
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <NextThemesProvider
-      attribute="data-mantine-color-scheme"
+      attribute="class"
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange

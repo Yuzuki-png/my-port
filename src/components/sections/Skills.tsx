@@ -114,33 +114,34 @@ const Skills = () => {
     <Box
       component="section"
       id="skills"
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900"
+      className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20"
     >
       <Container size="xl">
-        <Box className="text-center mb-16">
+        <Box className="text-center mb-12 md:mb-16">
           <Title
             order={2}
-            size="3rem"
-            className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
           >
-            スキルスタック（Tech Stack）
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
+              スキルスタック（Tech Stack）
+            </span>
           </Title>
-          <Text size="xl" className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <Text size="lg" className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 md:text-xl">
             実務経験や個人開発を通じて習得した技術スタックをご紹介します
           </Text>
         </Box>
 
-        <Grid>
+        <Grid gutter="lg">
           {skillCategories.map((category, categoryIndex) => (
             <Grid.Col key={categoryIndex} span={{ base: 12, lg: 6 }}>
               <Paper
-                className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 h-full"
-                p="xl"
+                className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-0 h-full"
+                p="lg"
                 radius="lg"
               >
-                <Group gap="md" className="mb-6">
+                <Group gap="md" className="mb-4 md:mb-6">
                   <Box className="flex-1">
-                    <Title order={3} size="xl" className="mb-2">
+                    <Title order={3} size="lg" className="mb-2 text-lg md:text-xl text-gray-900 dark:text-white">
                       {category.title}
                     </Title>
                     <Badge color={category.color} variant="light" size="sm">
@@ -148,28 +149,29 @@ const Skills = () => {
                     </Badge>
                   </Box>
                 </Group>
-                <Stack gap="xl">
+                <Stack gap="lg">
                   {category.skills.map((skill, skillIndex) => (
                     <Box key={skillIndex}>
                       <Stack gap="sm">
-                        <Group gap="md" className="flex-wrap">
-                          <Text size="lg" fw={700} className="text-gray-800 dark:text-gray-200">
+                        <div className="flex flex-col space-y-2 md:flex-row md:items-start md:space-y-0 md:space-x-3">
+                          <Text size="md" fw={700} className="text-gray-800 dark:text-white md:text-lg">
                             {skill.name}
                           </Text>
-                          <Group gap="xs">
+                          <div className="flex flex-wrap gap-1 md:gap-2">
                             {skill.tags.map((tag, tagIndex) => (
                               <Badge
                                 key={tagIndex}
                                 color={getTagColor(tag)}
-                                size="sm"
+                                size="xs"
                                 variant="light"
+                                className="md:size-sm"
                               >
                                 {tag}
                               </Badge>
                             ))}
-                          </Group>
-                        </Group>
-                        <Text size="sm" className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                          </div>
+                        </div>
+                        <Text size="xs" className="text-gray-600 dark:text-gray-300 leading-relaxed md:text-sm">
                           {skill.description}
                         </Text>
                       </Stack>

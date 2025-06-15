@@ -5,7 +5,6 @@ import {
   Container,
   Button,
   Text,
-  Group,
   Box,
 } from '@mantine/core';
 import { 
@@ -32,17 +31,15 @@ const Footer = () => {
     <Box 
       component="footer" 
       className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
-      py="xl"
+      py="lg"
     >
       <Container size="xl">
-        <Group justify="space-between" align="center">
-          <Group gap="xs">
-            <Text className="text-gray-600 dark:text-gray-400">
-              © {currentYear} {APP_CONFIG.name}. All rights reserved.
-            </Text>
-          </Group>
+        <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0">
+          <Text className="text-gray-600 dark:text-gray-300 text-sm md:text-base text-center md:text-left">
+            © {currentYear} {APP_CONFIG.name}. All rights reserved.
+          </Text>
           
-          <Group gap="md">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
             {SOCIAL_LINKS.map((link, index) => (
               <Button
                 key={index}
@@ -54,12 +51,13 @@ const Footer = () => {
                 color="gray"
                 size="sm"
                 leftSection={getIconComponent(link.icon)}
+                className="text-xs md:text-sm hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
               >
                 {link.name}
               </Button>
             ))}
-          </Group>
-        </Group>
+          </div>
+        </div>
       </Container>
     </Box>
   );
