@@ -78,3 +78,28 @@ html {
     padding-top: 6rem !important;
   }
 }
+
+@supports (padding-top: env(safe-area-inset-top)) {
+  #home {
+    padding-top: calc(env(safe-area-inset-top) + 6rem) !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .webview-safe {
+    padding-top: max(env(safe-area-inset-top, 0), 7rem) !important;
+  }
+}
+
+@media (display-mode: minimal-ui), 
+       (display-mode: standalone), 
+       (max-width: 768px) and (orientation: portrait) {
+  #home {
+    padding-top: 8rem !important;
+    min-height: calc(100vh - env(safe-area-inset-bottom, 0)) !important;
+  }
+  
+  .hero-title {
+    margin-top: 2rem !important;
+  }
+}

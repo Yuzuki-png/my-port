@@ -20,7 +20,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 pt-20 md:pt-0"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 pt-24 sm:pt-28 md:pt-32 lg:pt-20"
     >
       <Container size="xl" className="py-20">
         <Paper 
@@ -35,7 +35,7 @@ const Hero = () => {
                   <Title
                     order={2}
                     size="1.5rem"
-                    className="text-2xl font-semibold text-gray-800 dark:text-gray-200"
+                    className="text-2xl font-semibold text-gray-800 dark:text-gray-200 hero-title"
                   >
                     Yuzuki Nishi
                   </Title>
