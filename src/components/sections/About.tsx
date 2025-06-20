@@ -38,13 +38,12 @@ const About = () => {
     >
       <Container size="xl">
         <Box className="text-center mb-12 md:mb-20">
-          <Title
+        <Title
             order={2}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8"
+            size="3rem"
+            className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text"
           >
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
-              私について
-            </span>
+            私について
           </Title>
           <Text size="lg" className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 md:text-xl">
             テクノロジーを活用して社会に価値を提供することを目指しています
@@ -96,7 +95,7 @@ const About = () => {
                     fw={700}
                     className="text-xl md:text-2xl font-bold mb-3 md:mb-4"
                   >
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
+                    <span className="ext-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
                       「エンジニアとして社会をより良くしたい」
                     </span>
                   </Text>

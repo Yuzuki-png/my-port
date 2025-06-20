@@ -122,7 +122,7 @@ const Skills = () => {
             order={2}
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
           >
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
+            <span className="ext-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
               スキルスタック（Tech Stack）
             </span>
           </Title>
