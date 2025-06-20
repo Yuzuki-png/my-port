@@ -39,8 +39,6 @@ const About = () => {
       <Container size="xl">
         <Box className="text-center mb-12 md:mb-20">
         <Title
-            order={2}
-            size="3rem"
             className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text"
           >
             私について
