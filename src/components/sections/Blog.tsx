@@ -28,7 +28,6 @@ const Blog = () => {
       description: '型の基本からユーティリティ型まで、自分の言葉で整理して解説。',
       platform: 'zenn',
       url: 'https://zenn.dev/you_ik/articles/a1f48acb35f6ec',
-      tags: ['TypeScript', '型システム', '学習記録']
     },
     {
       id: 2,
@@ -36,7 +35,6 @@ const Blog = () => {
       description: 'モバイルアプリのUI構築〜状態管理、ローカル保存の実装までを解説。',
       platform: 'zenn',
       url: 'https://zenn.dev/you_ik/articles/a2a24ff89ebe69',
-      tags: ['Flutter', 'モバイル', 'ToDoアプリ']
     }
   ];
 
@@ -49,7 +47,6 @@ const Blog = () => {
       url: 'https://github.com/Yuzuki-png/mimiru_backend',
       repo: 'mimiru_backend',
       status: '開発中',
-      tags: ['NestJS', 'TypeScript', 'JWT認証', 'CRUD']
     },
     {
       id: 2,
@@ -59,7 +56,6 @@ const Blog = () => {
       url: 'https://github.com/Yuzuki-png/py-ocr-st',
       repo: 'py-ocr-st',
       status: '公開中',
-      tags: ['Python', 'OCR', 'Lambda', 'Tesseract']
     },
     {
       id: 3,
@@ -68,7 +64,6 @@ const Blog = () => {
       platform: 'website',
       url: 'https://www.tsuki-no-niwa.site/',
       status: '運用中',
-      tags: ['Next.js', 'コーポレートサイト', 'Vercel', 'フルスタック']
     }
   ];
 
@@ -168,14 +163,6 @@ const Blog = () => {
                       </Text>
                     </Box>
 
-                    <Group gap="xs" className="flex-wrap">
-                      {post.tags.map((tag, index) => (
-                        <Badge key={index} size="xs" variant="light" color="blue" className="md:size-sm">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </Group>
-
                     <Button
                       component={Link}
                       href={post.url}
@@ -248,14 +235,6 @@ const Blog = () => {
                         {project.description}
                       </Text>
                     </Box>
-
-                    <Group gap="xs" className="flex-wrap">
-                      {project.tags.map((tag, index) => (
-                        <Badge key={index} size="xs" variant="light" color="gray" className="md:size-sm">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </Group>
 
                     <Button
                       component={Link}

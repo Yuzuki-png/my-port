@@ -131,7 +131,7 @@ const About = () => {
                 p="lg"
                 radius="lg"
               >
-                <Title order={3} className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8">
+                <Title order={3} className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8 pb-10">
                   現在の取り組み
                 </Title>
                 <Stack gap="lg">
