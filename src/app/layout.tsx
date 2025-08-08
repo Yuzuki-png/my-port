@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "インターン",
     "Go言語"
   ],
-  authors: [{ name: "学生エンジニア", url: "https://github.com" }],
+  authors: [{ name: "学生エンジニア", url: "https://github.com/Yuzuki-png" }],
   creator: "学生エンジニア",
   publisher: "学生エンジニア",
   formatDetection: {

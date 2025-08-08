@@ -56,13 +56,13 @@ const Contact = () => {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com',
+      url: 'https://github.com/Yuzuki-png',
       color: 'gray' as const,
       icon: <IconBrandGithub size={24} />
     },
     {
       name: 'Zenn',
-      url: 'https://zenn.dev',
+      url: 'https://zenn.dev/you_ik',
       color: 'blue' as const,
       icon: <ZennIcon className="w-6 h-6" />
     },
