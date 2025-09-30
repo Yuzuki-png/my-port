@@ -46,7 +46,7 @@ const Blog = () => {
       platform: 'github',
       url: 'https://github.com/Yuzuki-png/mimiru_backend',
       repo: 'mimiru_backend',
-      status: '開発中',
+      status: '公開中',
     },
     {
       id: 2,
@@ -64,6 +64,14 @@ const Blog = () => {
       platform: 'website',
       url: 'https://www.tsuki-no-niwa.site/',
       status: '運用中',
+    },
+    {
+      id: 4,
+      title: 'Mimiru',
+      description: '短時間で"気づき"や"知識"を得られる音声ラーニングメディア',
+      platform: 'website',
+      url: 'https://www.mimiru.site/',
+      status: '公開中',
     }
   ];
 
