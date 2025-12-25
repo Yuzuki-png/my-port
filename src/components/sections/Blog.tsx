@@ -41,11 +41,20 @@ const Blog = () => {
   const projects = [
     {
       id: 1,
-      title: 'NestJSで構築中のバックエンドAPI',
-      description: 'クリーンアーキテクチャを意識しながら設計・実装中（JWT認証、CRUD対応）',
+      title: 'NestJSで構築したバックエンドAPI',
+      description: 'クリーンアーキテクチャを意識して設計・実装（JWT認証、CRUD対応）',
       platform: 'github',
       url: 'https://github.com/Yuzuki-png/mimiru_backend',
       repo: 'mimiru_backend',
+      status: '公開中',
+    },
+    {
+      id: 5,
+      title: 'Mimiru フロントエンド',
+      description: 'mimiru_backendと連携するフロントエンドアプリケーション',
+      platform: 'github',
+      url: 'https://github.com/Yuzuki-png/mimiru_frontend',
+      repo: 'mimiru_frontend',
       status: '公開中',
     },
     {
