@@ -16,18 +16,17 @@ import {
 const About = () => {
   const highlights = [
     { icon: '🎓', title: '駒澤大学', description: '文学部社会学科社会学専攻在籍' },
-    { icon: '💼', title: 'インターン', description: 'エンジニアとして実務経験' },
+    { icon: '💼', title: 'フリーランス', description: '2025年12月より活動開始' },
     { icon: '🚀', title: '休学', description: '2024年9月〜2025年3月' },
     { icon: '📚', title: '復学', description: '2025年4月復学' },
   ];
 
   const currentFocus = [
-    'エンジニアインターンでの実務経験',
+    'フリーランスエンジニアとしての活動',
     'Go言語の学習と実践',
     'TypeScript/Node.jsでの開発',
     '大学での社会学の学び',
     '社会学とエンジニアリングの融合',
-
   ];
 
   return (
@@ -62,7 +61,7 @@ const About = () => {
                 <Stack gap="lg">
                   <Text size="md" className="text-gray-600 dark:text-gray-300 leading-relaxed md:text-lg">
                     駒澤大学文学部社会学科に在籍する学生エンジニアです。
-                    現在は大学を通いつつ、エンジニアインターンに参画して実務経験を積んでいます。
+                    2025年12月よりフリーランスエンジニアとして活動しています。
                   </Text>
                   <Text size="md" className="text-gray-600 dark:text-gray-300 leading-relaxed md:text-lg">
                     TypeScriptとNode.jsを中心とした開発に取り組んでおり、

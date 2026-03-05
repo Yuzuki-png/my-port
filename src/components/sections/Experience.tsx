@@ -15,12 +15,25 @@ import {
 const Experience = () => {
   const experiences = [
     {
-      title: 'エンジニアインターン',
-      company: 'ベンチャー企業',
-      period: '2024年9月 - 現在',
-      shortPeriod: '2024.09 - 現在',
+      title: 'フリーランスエンジニア',
+      company: '個人事業主',
+      period: '2025年12月 - 現在',
+      shortPeriod: '2025.12 - 現在',
       type: 'work',
       status: 'current',
+      description: [
+        'インターンで培った技術を活かしたフリーランス活動',
+        'TypeScript/Node.js/Goでの開発',
+        'クラウド環境での開発・運用'
+      ],
+    },
+    {
+      title: 'エンジニアインターン',
+      company: 'ベンチャー企業',
+      period: '2024年9月 - 2025年11月',
+      shortPeriod: '2024.09 - 2025.11',
+      type: 'work',
+      status: 'completed',
       description: [
         'TypeScript/Node.jsでのバックエンド開発',
         'Pythonでのサーバーレス開発',
