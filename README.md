@@ -20,6 +20,36 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Contact Form Email (Brevo)
+
+This project sends contact form submissions via a Next.js Route Handler: `POST /api/contact`.
+
+### Env
+
+Create `.env.local` (for local dev) and set:
+
+```bash
+BREVO_API_KEY=...
+CONTACT_FROM_EMAIL="Portfolio <no-reply@yuzuki-nishi.site>"
+CONTACT_TO_EMAIL="you@example.com"
+```
+
+`CONTACT_FROM_EMAIL` must be a sender address from a domain verified in Brevo.
+
+### Brevo Domain + DNS (Vercel DNS)
+
+This repo assumes your domain is managed by Vercel DNS (nameservers like `ns1.vercel-dns.com`).
+
+1. In Brevo, add and authenticate your domain (e.g. `yuzuki-nishi.site`).
+2. Brevo will show DNS records to add (typically SPF + DKIM).
+3. In Vercel Dashboard:
+   1. Go to `Domains` -> select your domain -> `DNS Records`.
+   2. Add the records exactly as Brevo shows.
+   3. For Vercel DNS, the `Name` should be the host label (e.g. `send`), not the full domain.
+4. Wait for DNS propagation, then click `Verify` in Brevo.
+
+Optional (recommended): add a DMARC record at `_dmarc` for better deliverability and spoofing protection.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

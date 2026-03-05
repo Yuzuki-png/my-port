@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useForm, ValidationError } from '@formspree/react';
 import { 
   Container,
   Paper,
@@ -26,13 +25,25 @@ import {
 } from '@tabler/icons-react';
 import { ZennIcon } from '@/components/ui/icons';
 
+type ContactStatus = {
+  submitting: boolean;
+  succeeded: boolean;
+  error?: string;
+};
+
 const Contact = () => {
-  const [state, handleSubmit] = useForm("mqabqjvd");
+  const [status, setStatus] = useState<ContactStatus>({
+    submitting: false,
+    succeeded: false,
+    error: undefined,
+  });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    // Honeypot: bots tend to fill hidden fields; server ignores when empty.
+    company: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,13 +55,35 @@ const Contact = () => {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    const result = await handleSubmit(e);
-    
-    if (state.succeeded) {
-      setFormData({ name: '', email: '', subject: '', message: '' });
+
+    setStatus({ submitting: true, succeeded: false, error: undefined });
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const payload = (await res.json().catch(() => null)) as { error?: string } | null;
+        setStatus({
+          submitting: false,
+          succeeded: false,
+          error: payload?.error || '送信に失敗しました。時間をおいて再度お試しください。',
+        });
+        return;
+      }
+
+      setStatus({ submitting: false, succeeded: true, error: undefined });
+      setFormData({ name: '', email: '', subject: '', message: '', company: '' });
+    } catch {
+      setStatus({
+        submitting: false,
+        succeeded: false,
+        error: '送信に失敗しました。ネットワーク状況をご確認ください。',
+      });
     }
-    return result;
   };
 
   const socialLinks = [
@@ -101,7 +134,7 @@ const Contact = () => {
                 メッセージを送る
               </Title>
 
-              {state.succeeded && (
+              {status.succeeded && (
                 <Alert 
                   icon={<IconCheck size={16} />} 
                   title="送信完了" 
@@ -112,21 +145,29 @@ const Contact = () => {
                 </Alert>
               )}
 
-              {state.errors && (
+              {status.error && (
                 <Alert 
                   icon={<IconX size={16} />} 
-                  title="入力エラー" 
+                  title="送信エラー" 
                   color="red"
                   className="mb-6"
                 >
-                  <Text size="sm">
-                    フォームの送信中にエラーが発生しました。入力内容をご確認ください。
-                  </Text>
+                  <Text size="sm">{status.error}</Text>
                 </Alert>
               )}
 
               <form onSubmit={onSubmit}>
                 <Stack gap="lg">
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="hidden"
+                  />
                   <Box>
                     <TextInput
                       name="name"
@@ -137,13 +178,8 @@ const Contact = () => {
                       required
                       variant="filled"
                       size="md"
-                      disabled={state.submitting}
+                      disabled={status.submitting}
                       className="[&_input]:dark:bg-gray-700 [&_input]:dark:text-white [&_label]:dark:text-gray-300"
-                    />
-                    <ValidationError 
-                      prefix="お名前" 
-                      field="name"
-                      errors={state.errors}
                     />
                   </Box>
 
@@ -158,13 +194,8 @@ const Contact = () => {
                       required
                       variant="filled"
                       size="md"
-                      disabled={state.submitting}
+                      disabled={status.submitting}
                       className="[&_input]:dark:bg-gray-700 [&_input]:dark:text-white [&_label]:dark:text-gray-300"
-                    />
-                    <ValidationError 
-                      prefix="メールアドレス" 
-                      field="email"
-                      errors={state.errors}
                     />
                   </Box>
 
@@ -178,13 +209,8 @@ const Contact = () => {
                       required
                       variant="filled"
                       size="md"
-                      disabled={state.submitting}
+                      disabled={status.submitting}
                       className="[&_input]:dark:bg-gray-700 [&_input]:dark:text-white [&_label]:dark:text-gray-300"
-                    />
-                    <ValidationError 
-                      prefix="件名" 
-                      field="subject"
-                      errors={state.errors}
                     />
                   </Box>
 
@@ -198,13 +224,8 @@ const Contact = () => {
                       required
                       variant="filled"
                       minRows={5}
-                      disabled={state.submitting}
+                      disabled={status.submitting}
                       className="[&_textarea]:dark:bg-gray-700 [&_textarea]:dark:text-white [&_label]:dark:text-gray-300"
-                    />
-                    <ValidationError 
-                      prefix="メッセージ" 
-                      field="message"
-                      errors={state.errors}
                     />
                   </Box>
 
@@ -213,10 +234,10 @@ const Contact = () => {
                     color="blue"
                     size="lg"
                     className="w-full font-medium"
-                    loading={state.submitting}
-                    disabled={state.submitting}
+                    loading={status.submitting}
+                    disabled={status.submitting}
                   >
-                    {state.submitting ? '送信中...' : '送信する'}
+                    {status.submitting ? '送信中...' : '送信する'}
                   </Button>
                 </Stack>
               </form>
